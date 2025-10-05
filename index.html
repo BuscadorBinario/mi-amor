@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Amor Eterno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        h1 {
+            font-size: 5em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #fff, #ffd700, #ff69b4, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShine 3s ease infinite;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+        }
+        
+        @keyframes textShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            opacity: 0.9;
+            margin-top: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+        }
+        
+        h2 {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .counter-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .counter-box {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .counter-number {
+            font-size: 3.5em;
+            font-weight: bold;
+            display: block;
+            background: linear-gradient(45deg, #ffd700, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .counter-label {
+            font-size: 1.1em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .card:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+            z-index: 2;
+        }
+        
+        .card:hover .card-content {
+            transform: translateY(0);
+        }
+        
+        .caption {
+            font-size: 1.1em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        .interactive-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        }
+        
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            font-size: 1.3em;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+            z-index: 10;
+        }
+        
+        .slider-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.5);
+            color: white;
+            font-size: 2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-btn:hover {
+            background: rgba(255,255,255,0.5);
+            transform: scale(1.1);
+        }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .dot.active {
+            background: white;
+            width: 30px;
+            border-radius: 6px;
+        }
+        
+        .poem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .poem-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .poem-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .poem-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        .poem-card p {
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #ffd700, #ff69b4, #00f2fe);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(255,255,255,0.8);
+            z-index: 2;
+        }
+        
+        .interactive-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 10px;
+            font-weight: 600;
+        }
+        
+        .interactive-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+        
+        .interactive-button:active {
+            transform: translateY(0);
+        }
+        
+        .love-message-box {
+            background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,105,180,0.3));
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 30px 0;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .love-message-box p {
+            font-size: 1.5em;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 50px;
+            border-radius: 30px;
+            max-width: 600px;
+            text-align: center;
+            animation: modalPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes modalPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .modal-content h3 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .modal-content p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        
+        .memory-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .memory-item {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .memory-item:hover {
+            transform: scale(0.95);
+        }
+        
+        .memory-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .floating-hearts {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .quiz-container {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .quiz-option {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .quiz-option:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+        
+        .music-player {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #ff69b4);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            h2 { font-size: 2em; }
+            .section { padding: 30px 20px; }
+            .timeline::before { left: 20px; }
+            .timeline-content { width: calc(100% - 60px); margin-left: 60px; }
+            .timeline-item { flex-direction: column !important; }
+            .timeline-dot { left: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Amor Eterno</h1>
+        <p class="subtitle">Un universo dedicado a celebrar nuestro amor infinito</p>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Contador de Amor</h2>
+            <div class="counter-display" id="counter-display">
+                <div class="counter-box">
+                    <span class="counter-number" id="days">333</span>
+                    <span class="counter-label">Días Juntos</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="hours">0</span>
+                    <span class="counter-label">Horas</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="minutes">0</span>
+                    <span class="counter-label">Minutos</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="seconds">0</span>
+                    <span class="counter-label">Segundos</span>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="interactive-button" onclick="showSurprise()">Descubre una Sorpresa</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Galería de Tu Belleza</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">17 momentos que capturan tu esencia única</p>
+            <div class="gallery" id="solo-gallery"></div>
+        </section>
+
+        <section class="section">
+            <h2>Nuestros Momentos en el Cine</h2>
+            <div class="interactive-slider">
+                <div class="slider-container" id="slider-container"></div>
+                <div class="slider-nav">
+                    <button class="slider-btn" onclick="changeSlide(-1)">❮</button>
+                    <button class="slider-btn" onclick="changeSlide(1)">❯</button>
+                </div>
+            </div>
+            <div class="slider-dots" id="slider-dots"></div>
+        </section>
+
+        <section class="section">
+            <h2>Muro de Recuerdos Cinematográficos</h2>
+            <div class="memory-wall" id="memory-wall"></div>
+        </section>
+
+        <section class="section">
+            <h2>Poemas de Mi Corazón</h2>
+            <div class="poem-grid" id="poem-grid"></div>
+        </section>
+
+        <section class="section">
+            <h2>Nuestra Historia de Amor</h2>
+            <div class="timeline" id="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>6 de Noviembre, 2024</h3>
+                        <p>El día que cambió nuestras vidas para siempre. Nuestro primer momento mágico juntos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Primera Cita en el Cine</h3>
+                        <p>Palomitas compartidas y manos entrelazadas en la oscuridad. El inicio de algo hermoso.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Febrero, 2025</h3>
+                        <p>Nuestra primera escapada romántica. Descubriendo el mundo juntos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Junio, 2025</h3>
+                        <p>La noche que reímos hasta el amanecer. Momentos que quedan grabados en el alma.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Octubre, 2025</h3>
+                        <p>Hoy, celebrando 333 días de puro amor. Y apenas es el comienzo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Nuestro Futuro</h3>
+                        <p>Infinitas aventuras por vivir. Un amor eterno que seguirá creciendo cada día.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Mensajes del Corazón</h2>
+            <div class="love-message-box">
+                <p id="rotating-message">Eres mi universo entero, mi razón de sonreír cada mañana.</p>
+                <button class="interactive-button" onclick="changeMessage()">Nuevo Mensaje</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Quiz del Amor</h2>
+            <div class="quiz-container">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película nos gustó más ver en el cine?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuiz1(0)">Deadpool & Wolverine</div>
+                    <div class="quiz-option" onclick="answerQuiz1(1)">Intensamente 2</div>
+                    <div class="quiz-option" onclick="answerQuiz1(2)">Lilo y Stitch</div>
+                    <div class="quiz-option" onclick="answerQuiz1(3)">Dune: Parte 2</div>
+                </div>
+                <p id="quiz-result-1" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
+            </div>
+            
+            <div class="quiz-container" style="margin-top: 40px;">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película NO hemos visto todavía?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuiz2(0)">Wicked</div>
+                    <div class="quiz-option" onclick="answerQuiz2(1)">El Conjuro 4: Últimos Ritos</div>
+                    <div class="quiz-option" onclick="answerQuiz2(2)">Gladiador II</div>
+                    <div class="quiz-option" onclick="answerQuiz2(3)">Venom 3</div>
+                </div>
+                <p id="quiz-result-2" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
+            </div>
+            
+            <div class="quiz-container" style="margin-top: 40px;">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película te dio más miedo verla en el cine?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuiz3(0)">Terrifier 3</div>
+                    <div class="quiz-option" onclick="answerQuiz3(1)">Together: Juntos Hasta la Muerte</div>
+                    <div class="quiz-option" onclick="answerQuiz3(2)">Nosferatu</div>
+                    <div class="quiz-option" onclick="answerQuiz3(3)">Smile 2</div>
+                </div>
+                <p id="quiz-result-3" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Reproductor de Recuerdos</h2>
+            <div class="music-player">
+                <p style="font-size: 1.3em; margin-bottom: 20px;">Nuestra Canción: "Perfect" - Ed Sheeran</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <button class="interactive-button" onclick="toggleMusic()">▶ Play / Pause</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p style="font-size: 1.2em;">Creado con todo mi amor para ti</p>
+        <p style="margin-top: 10px; opacity: 0.8;">© 2025 - Un amor que trasciende el tiempo</p>
+    </footer>
+
+    <div class="modal" id="surprise-modal">
+        <div class="modal-content">
+            <h3>¡Sorpresa!</h3>
+            <p id="surprise-text">Eres la persona más especial en mi vida. Cada día contigo es un regalo.</p>
+            <button class="interactive-button" onclick="closeSurprise()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        const startDate = new Date('2024-11-06');
+        
+        const soloImages = Array.from({length: 17}, (_, i) => `${i + 1}.jpeg`);
+        const soloCaptions = [
+            'Tu sonrisa ilumina mi mundo', 'Eres la más hermosa', 'Cada mirada tuya me enamora',
+            'Belleza pura y natural', 'Mi musa eterna', 'Radiante como el sol',
+            'Dulce y encantadora', 'Inolvidable', 'Perfecta en todo sentido',
+            'Mi amor por ti crece cada día', 'Eres mi todo', 'Hermosa por dentro y fuera',
+            'Te adoro', 'Siempre en mi corazón', 'Mi reina', 'Luz de mi vida', 'Única e irrepetible'
+        ];
+        
+        const cinemaImages = ['18.jpeg', '19.jpeg', '20.jpeg', '21.jpeg', '22.png', '23.png', '24.png', '25.png'];
+        const cinemaCaptions = [
+            'Nuestro primer día en el cine juntos',
+            'Compartiendo palomitas y sonrisas',
+            'La película que nos hizo llorar de risa',
+            'Tomados de la mano en la sala oscura',
+            'Susurrando durante los créditos finales',
+            'Tu expresión al ver tu película favorita',
+            'El abrazo después de esa escena emotiva',
+            'Saliendo del cine, hablando de la trama'
+        ];
+        
+        const loveMessages = [
+            'Eres mi universo entero, mi razón de sonreír cada mañana.',
+            'Cada latido de mi corazón lleva tu nombre grabado.',
+            'Contigo descubrí que el amor verdadero existe.',
+            'Eres mi hogar, mi paz, mi todo.',
+            'Tu amor es la melodía más hermosa de mi vida.',
+            'Cada día contigo es un nuevo capítulo de nuestra historia.',
+            'Eres la respuesta a todas mis oraciones.',
+            'Tu sonrisa es mi amanecer favorito.'
+        ];
+        
+        const poems = [
+            { title: 'Luz de Mi Vida', text: 'En tus ojos veo el infinito,\nun universo de amor tan bonito.\nEres mi sol, mi luna y más,\nmi corazón late solo por ti, jamás.' },
+            { title: 'Eterno Amor', text: 'Como el mar que besa la arena,\nasí mi amor por ti se llena.\nCada ola trae un te quiero,\neres mi todo, mi amor verdadero.' },
+            { title: 'Juntos', text: 'Tomados de la mano caminamos,\nen este viaje que juntos creamos.\nCada paso es un nuevo comienzo,\ncontigo el amor es inmenso.' },
+            { title: 'Mi Musa', text: 'Eres la poesía que escribo,\nla razón por la que vivo.\nEn cada verso está tu esencia,\nmi amor por ti es mi existencia.' },
+            { title: 'Destino', text: 'El destino nos unió aquel día,\ny desde entonces mi vida es alegría.\nEres mi sueño hecho realidad,\nmi amor eterno, mi verdad.' },
+            { title: 'Promesa', text: 'Prometo amarte cada amanecer,\nen cada atardecer volver a crecer.\nNuestro amor es infinito y real,\neres mi todo, mi amor especial.' }
+        ];
+        
+        function loadGallery() {
+            const gallery = document.getElementById('solo-gallery');
+            soloImages.forEach((img, i) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${img}" alt="Imagen ${i + 1}">
+                    <div class="card-content">
+                        <p class="caption">${soloCaptions[i]}</p>
+                    </div>
+                `;
+                gallery.appendChild(card);
+            });
+        }
+        
+        let currentSlide = 0;
+        function loadSlider() {
+            const container = document.getElementById('slider-container');
+            const dots = document.getElementById('slider-dots');
+            
+            cinemaImages.forEach((img, i) => {
+                const slide = document.createElement('div');
+                slide.className = 'slide';
+                slide.innerHTML = `
+                    <img src="${img}" alt="Recuerdo ${i + 1}">
+                    <div class="slide-caption">${cinemaCaptions[i]}</div>
+                `;
+                container.appendChild(slide);
+                
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (i === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                dots.appendChild(dot);
+            });
+        }
+        
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + cinemaImages.length) % cinemaImages.length;
+            updateSlider();
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+        
+        function updateSlider() {
+            const container = document.getElementById('slider-container');
+            container.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            document.querySelectorAll('.dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+        
+        function loadMemoryWall() {
+            const wall = document.getElementById('memory-wall');
+            cinemaImages.forEach((img, i) => {
+                const item = document.createElement('div');
+                item.className = 'memory-item';
+                item.innerHTML = `<img src="${img}" alt="Memoria ${i + 1}">`;
+                item.onclick = () => showMemoryDetail(i);
+                wall.appendChild(item);
+            });
+        }
+        
+        function loadPoems() {
+            const grid = document.getElementById('poem-grid');
+            poems.forEach(poem => {
+                const card = document.createElement('div');
+                card.className = 'poem-card';
+                card.innerHTML = `
+                    <h3>${poem.title}</h3>
+                    <p>${poem.text}</p>
+                `;
+                grid.appendChild(card);
+            });
+        }
+        
+        function updateCounter() {
+            const now = new Date();
+            const diff = now - startDate;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        function changeMessage() {
+            const messageEl = document.getElementById('rotating-message');
+            const randomMsg = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            messageEl.style.opacity = '0';
+            setTimeout(() => {
+                messageEl.textContent = randomMsg;
+                messageEl.style.opacity = '1';
+            }, 300);
+        }
+        
+        function showSurprise() {
+            const modal = document.getElementById('surprise-modal');
+            const surprises = [
+                'Eres la persona más especial en mi vida. Cada día contigo es un regalo.',
+                'Tu sonrisa ilumina mis días más oscuros. Eres mi luz.',
+                'Contigo descubrí el verdadero significado del amor.',
+                'Eres mi hogar, mi paz, mi felicidad infinita.',
+                'Cada momento a tu lado es un tesoro que guardo en mi corazón.'
+            ];
+            document.getElementById('surprise-text').textContent = surprises[Math.floor(Math.random() * surprises.length)];
+            modal.classList.add('active');
+            createHearts();
+        }
+        
+        function closeSurprise() {
+            document.getElementById('surprise-modal').classList.remove('active');
+        }
+        
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * window.innerWidth + 'px';
+                    heart.style.top = window.innerHeight + 'px';
+                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    heart.style.opacity = '0.8';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '9999';
+                    heart.style.transition = 'all 3s ease-out';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.style.top = '-100px';
+                        heart.style.opacity = '0';
+                        heart.style.transform = `translateX(${Math.random() * 200 - 100}px)`;
+                    }, 50);
+                    
+                    setTimeout(() => heart.remove(), 3500);
+                }, i * 100);
+            }
+        }
+        
+        let quizAnswered1 = false;
+        let quizAnswered2 = false;
+        
+        function answerQuiz1(option) {
+            if (quizAnswered1) return;
+            quizAnswered1 = true;
+            
+            const result = document.getElementById('quiz-result-1');
+            const options = document.querySelectorAll('#quiz-result-1').parentElement.previousElementSibling.querySelectorAll('.quiz-option');
+            
+            if (option === 2) {
+                result.textContent = '¡Correcto! Moana 2 fue nuestra película favorita. ❤️ ¡Nos encantó compartir ese momento mágico!';
+                result.style.color = '#ffd700';
+                options[option].style.background = 'rgba(0, 255, 0, 0.3)';
+                options[option].style.borderColor = '#00ff00';
+            } else {
+                result.textContent = '¡Uy! Esa no era, pero cada película contigo es especial. 💕';
+                result.style.color = '#ff6b6b';
+                options[option].style.background = 'rgba(255, 0, 0, 0.2)';
+                options[option].style.borderColor = '#ff6b6b';
+            }
+            
+            setTimeout(() => {
+                quizAnswered1 = false;
+                result.textContent = '';
+                options.forEach(opt => {
+                    opt.style.background = '';
+                    opt.style.borderColor = '';
+                });
+            }, 4000);
+        }
+        
+        function answerQuiz2(option) {
+            if (quizAnswered2) return;
+            quizAnswered2 = true;
+            
+            const result = document.getElementById('quiz-result-2');
+            const options = document.querySelectorAll('#quiz-result-2').parentElement.previousElementSibling.querySelectorAll('.quiz-option');
+            
+            if (option === 1) {
+                result.textContent = '¡Exacto! El Conjuro 4: Últimos Ritos aún está en nuestra lista. ¡Tenemos que verla juntos! 🎬';
+                result.style.color = '#ffd700';
+                options[option].style.background = 'rgba(0, 255, 0, 0.3)';
+                options[option].style.borderColor = '#00ff00';
+            } else {
+                result.textContent = '¡Mmm no! Esa sí la vimos. ¿No recuerdas? 😊';
+                result.style.color = '#ff6b6b';
+                options[option].style.background = 'rgba(255, 0, 0, 0.2)';
+                options[option].style.borderColor = '#ff6b6b';
+            }
+            
+            setTimeout(() => {
+                quizAnswered2 = false;
+                result.textContent = '';
+                options.forEach(opt => {
+                    opt.style.background = '';
+                    opt.style.borderColor = '';
+                });
+            }, 4000);
+        }
+        
+        let musicPlaying = false;
+        let musicProgress = 0;
+        function toggleMusic() {
+            musicPlaying = !musicPlaying;
+            if (musicPlaying) {
+                const interval = setInterval(() => {
+                    if (!musicPlaying) {
+                        clearInterval(interval);
+                        return;
+                    }
+                    musicProgress += 0.5;
+                    if (musicProgress >= 100) {
+                        musicProgress = 0;
+                    }
+                    document.getElementById('progress-fill').style.width = musicProgress + '%';
+                }, 50);
+            }
+        }
+        
+        function showMemoryDetail(index) {
+            const modal = document.getElementById('surprise-modal');
+            document.getElementById('surprise-text').textContent = cinemaCaptions[index];
+            modal.classList.add('active');
+        }
+        
+        loadGallery();
+        loadSlider();
+        loadMemoryWall();
+        loadPoems();
+        
+        setInterval(updateCounter, 1000);
+        updateCounter();
+        
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+        
+        document.getElementById('rotating-message').style.transition = 'opacity 0.3s';
+        
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+            }
+        });
+        
+        setInterval(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.width = '3px';
+            particle.style.height = '3px';
+            particle.style.background = 'white';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.opacity = '0.6';
+            particle.style.animation = 'twinkle 2s ease-in-out';
+            particle.style.zIndex = '1';
+            document.body.appendChild(particle);
+            
+            setTimeout(() => particle.remove(), 2000);
+        }, 200);
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes twinkle {
+                0%, 100% { opacity: 0; transform: scale(0); }
+                50% { opacity: 0.6; transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
