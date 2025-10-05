@@ -26,6 +26,48 @@
             100% { background-position: 0% 50%; }
         }
         
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes textShine {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @keyframes modalPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 0.6; transform: scale(1); }
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.05); }
+        }
+        
         header {
             text-align: center;
             padding: 100px 20px;
@@ -57,15 +99,11 @@
             margin-bottom: 20px;
         }
         
-        @keyframes textShine {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
         .subtitle {
             font-size: 1.5em;
             opacity: 0.9;
             margin-top: 20px;
+            animation: float 3s ease-in-out infinite;
         }
         
         .container {
@@ -83,6 +121,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 0.8s ease-out;
         }
         
         .section:hover {
@@ -110,6 +149,12 @@
             border-radius: 20px;
             text-align: center;
             border: 2px solid rgba(255,255,255,0.3);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .counter-box:hover {
+            transform: scale(1.05);
         }
         
         .counter-number {
@@ -349,6 +394,11 @@
             border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.2);
             position: relative;
+            transition: transform 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.05);
         }
         
         .timeline-dot {
@@ -361,6 +411,7 @@
             transform: translateX(-50%);
             box-shadow: 0 0 20px rgba(255,255,255,0.8);
             z-index: 2;
+            animation: pulse 2s ease-in-out infinite;
         }
         
         .interactive-button {
@@ -431,11 +482,6 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
         
-        @keyframes modalPop {
-            0% { transform: scale(0.5); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        
         .modal-content h3 {
             font-size: 2.5em;
             margin-bottom: 20px;
@@ -471,12 +517,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-        
-        .floating-hearts {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
         }
         
         .quiz-container {
@@ -534,6 +574,189 @@
             transition: width 0.3s;
         }
         
+        .love-calculator {
+            background: linear-gradient(135deg, rgba(255,182,193,0.3), rgba(147,112,219,0.3));
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+        }
+        
+        .calculator-result {
+            font-size: 4em;
+            font-weight: bold;
+            color: #ff69b4;
+            margin: 20px 0;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            transition: transform 0.3s;
+        }
+        
+        .wishes-board {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .wish-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .wish-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .letter-envelope {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 700px;
+            margin: 30px auto;
+            border: 2px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .letter-content {
+            font-size: 1.2em;
+            line-height: 2;
+            text-align: justify;
+            font-style: italic;
+        }
+        
+        .photo-collage {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .collage-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .collage-item:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+        
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .reason-card {
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,105,180,0.2));
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s;
+        }
+        
+        .reason-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .reason-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .bucket-list {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 30px 0;
+        }
+        
+        .bucket-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffd700;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .bucket-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(10px);
+        }
+        
+        .fortune-wheel {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            position: relative;
+            border-radius: 50%;
+            border: 10px solid rgba(255,255,255,0.3);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f7b731, #5f27cd);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transition: transform 3s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+        }
+        
+        .fortune-pointer {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 30px solid #ffd700;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+        }
+        
+        .date-ideas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .date-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .date-card:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
+        }
+        
+        .date-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
         footer {
             text-align: center;
             padding: 50px 20px;
@@ -550,188 +773,14 @@
             .timeline-content { width: calc(100% - 60px); margin-left: 60px; }
             .timeline-item { flex-direction: column !important; }
             .timeline-dot { left: 20px; }
+            .photo-collage { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Mi Amor Eterno</h1>
-        <p class="subtitle">Un universo dedicado a celebrar nuestro amor infinito</p>
-    </header>
-
-    <div class="container">
-        <section class="section">
-            <h2>Contador de Amor</h2>
-            <div class="counter-display" id="counter-display">
-                <div class="counter-box">
-                    <span class="counter-number" id="days">333</span>
-                    <span class="counter-label">Días Juntos</span>
-                </div>
-                <div class="counter-box">
-                    <span class="counter-number" id="hours">0</span>
-                    <span class="counter-label">Horas</span>
-                </div>
-                <div class="counter-box">
-                    <span class="counter-number" id="minutes">0</span>
-                    <span class="counter-label">Minutos</span>
-                </div>
-                <div class="counter-box">
-                    <span class="counter-number" id="seconds">0</span>
-                    <span class="counter-label">Segundos</span>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <button class="interactive-button" onclick="showSurprise()">Descubre una Sorpresa</button>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Galería de Tu Belleza</h2>
-            <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">17 momentos que capturan tu esencia única</p>
-            <div class="gallery" id="solo-gallery"></div>
-        </section>
-
-        <section class="section">
-            <h2>Nuestros Momentos en el Cine</h2>
-            <div class="interactive-slider">
-                <div class="slider-container" id="slider-container"></div>
-                <div class="slider-nav">
-                    <button class="slider-btn" onclick="changeSlide(-1)">❮</button>
-                    <button class="slider-btn" onclick="changeSlide(1)">❯</button>
-                </div>
-            </div>
-            <div class="slider-dots" id="slider-dots"></div>
-        </section>
-
-        <section class="section">
-            <h2>Muro de Recuerdos Cinematográficos</h2>
-            <div class="memory-wall" id="memory-wall"></div>
-        </section>
-
-        <section class="section">
-            <h2>Poemas de Mi Corazón</h2>
-            <div class="poem-grid" id="poem-grid"></div>
-        </section>
-
-        <section class="section">
-            <h2>Nuestra Historia de Amor</h2>
-            <div class="timeline" id="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>6 de Noviembre, 2024</h3>
-                        <p>El día que cambió nuestras vidas para siempre. Nuestro primer momento mágico juntos.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Primera Cita en el Cine</h3>
-                        <p>Palomitas compartidas y manos entrelazadas en la oscuridad. El inicio de algo hermoso.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Febrero, 2025</h3>
-                        <p>Nuestra primera escapada romántica. Descubriendo el mundo juntos.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Junio, 2025</h3>
-                        <p>La noche que reímos hasta el amanecer. Momentos que quedan grabados en el alma.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Octubre, 2025</h3>
-                        <p>Hoy, celebrando 333 días de puro amor. Y apenas es el comienzo.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Nuestro Futuro</h3>
-                        <p>Infinitas aventuras por vivir. Un amor eterno que seguirá creciendo cada día.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Mensajes del Corazón</h2>
-            <div class="love-message-box">
-                <p id="rotating-message">Eres mi universo entero, mi razón de sonreír cada mañana.</p>
-                <button class="interactive-button" onclick="changeMessage()">Nuevo Mensaje</button>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Quiz del Amor</h2>
-            <div class="quiz-container">
-                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película nos gustó más ver en el cine?</p>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="answerQuiz1(0)">Deadpool & Wolverine</div>
-                    <div class="quiz-option" onclick="answerQuiz1(1)">Intensamente 2</div>
-                    <div class="quiz-option" onclick="answerQuiz1(2)">Lilo y Stitch</div>
-                    <div class="quiz-option" onclick="answerQuiz1(3)">Dune: Parte 2</div>
-                </div>
-                <p id="quiz-result-1" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
-            </div>
-            
-            <div class="quiz-container" style="margin-top: 40px;">
-                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película NO hemos visto todavía?</p>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="answerQuiz2(0)">Wicked</div>
-                    <div class="quiz-option" onclick="answerQuiz2(1)">El Conjuro 4: Últimos Ritos</div>
-                    <div class="quiz-option" onclick="answerQuiz2(2)">Gladiador II</div>
-                    <div class="quiz-option" onclick="answerQuiz2(3)">Venom 3</div>
-                </div>
-                <p id="quiz-result-2" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
-            </div>
-            
-            <div class="quiz-container" style="margin-top: 40px;">
-                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película te dio más miedo verla en el cine?</p>
-                <div class="quiz-options">
-                    <div class="quiz-option" onclick="answerQuiz3(0)">Terrifier 3</div>
-                    <div class="quiz-option" onclick="answerQuiz3(1)">Together: Juntos Hasta la Muerte</div>
-                    <div class="quiz-option" onclick="answerQuiz3(2)">Nosferatu</div>
-                    <div class="quiz-option" onclick="answerQuiz3(3)">Smile 2</div>
-                </div>
-                <p id="quiz-result-3" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Reproductor de Recuerdos</h2>
-            <div class="music-player">
-                <p style="font-size: 1.3em; margin-bottom: 20px;">Nuestra Canción: "Perfect" - Ed Sheeran</p>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill"></div>
-                </div>
-                <button class="interactive-button" onclick="toggleMusic()">▶ Play / Pause</button>
-            </div>
-        </section>
-    </div>
-
-    <footer>
-        <p style="font-size: 1.2em;">Creado con todo mi amor para ti</p>
-        <p style="margin-top: 10px; opacity: 0.8;">© 2025 - Un amor que trasciende el tiempo</p>
-    </footer>
-
-    <div class="modal" id="surprise-modal">
-        <div class="modal-content">
-            <h3>¡Sorpresa!</h3>
-            <p id="surprise-text">Eres la persona más especial en mi vida. Cada día contigo es un regalo.</p>
-            <button class="interactive-button" onclick="closeSurprise()">Cerrar</button>
-        </div>
-    </div>
-
     <script>
-        const startDate = new Date('2024-11-06');
+        // Definir todas las funciones primero
+        const startDate = new Date('2024-11-06T00:00:00-05:00'); // Hora de Perú (UTC-5)
         
         const soloImages = Array.from({length: 17}, (_, i) => `${i + 1}.jpeg`);
         const soloCaptions = [
@@ -762,7 +811,9 @@
             'Tu amor es la melodía más hermosa de mi vida.',
             'Cada día contigo es un nuevo capítulo de nuestra historia.',
             'Eres la respuesta a todas mis oraciones.',
-            'Tu sonrisa es mi amanecer favorito.'
+            'Tu sonrisa es mi amanecer favorito.',
+            'Contigo el tiempo se detiene y todo tiene sentido.',
+            'Eres mi sueño hecho realidad, mi amor eterno.'
         ];
         
         const poems = [
@@ -774,13 +825,149 @@
             { title: 'Promesa', text: 'Prometo amarte cada amanecer,\nen cada atardecer volver a crecer.\nNuestro amor es infinito y real,\neres mi todo, mi amor especial.' }
         ];
         
+        const reasons = [
+            'Tu sonrisa ilumina mis días más oscuros',
+            'La forma en que me miras me hace sentir especial',
+            'Tu risa es mi sonido favorito en el mundo',
+            'Eres mi mejor amiga y mi confidente',
+            'Me apoyas en todos mis sueños',
+            'Haces que cada día sea una aventura',
+            'Tu bondad inspira a todos a tu alrededor',
+            'Eres increíblemente inteligente',
+            'Tu abrazo es mi lugar favorito',
+            'Me haces querer ser mejor persona',
+            'Eres hermosa por dentro y por fuera',
+            'Tu paciencia conmigo es infinita',
+            'Compartimos los mismos valores',
+            'Me haces reír incluso en los peores días',
+            'Eres mi tranquilidad en medio del caos',
+            'Tu creatividad me sorprende cada día',
+            'Eres fuerte cuando yo soy débil',
+            'Celebras mis victorias como si fueran tuyas',
+            'Me entiendes sin necesidad de palabras',
+            'Eres mi hogar, donde sea que estés'
+        ];
+        
+        const wishes = [
+            { emoji: '🌟', text: 'Que siempre seamos felices juntos' },
+            { emoji: '✈️', text: 'Viajar por el mundo tomados de la mano' },
+            { emoji: '🏡', text: 'Construir nuestro hogar lleno de amor' },
+            { emoji: '👶', text: 'Formar una hermosa familia' },
+            { emoji: '💍', text: 'Prometernos amor eterno' },
+            { emoji: '🎉', text: 'Celebrar mil momentos más juntos' },
+            { emoji: '🌈', text: 'Superar cualquier tormenta unidos' },
+            { emoji: '⭐', text: 'Crecer juntos cada día' }
+        ];
+        
+        const wheelPrizes = [
+            '💋 Un beso apasionado',
+            '🤗 100 abrazos',
+            '🍕 Cena de tu elección',
+            '🎁 Un regalo sorpresa',
+            '📽️ Maratón de películas',
+            '💆 Masaje relajante',
+            '🌹 Ramo de flores',
+            '🎵 Serenata dedicada'
+        ];
+        
+        let displayedReasons = 10;
+        let currentSlide = 0;
+        let musicPlaying = false;
+        let musicProgress = 0;
+        let musicInterval = null;
+        let quizAnswered1 = false;
+        let quizAnswered2 = false;
+        let quizAnswered3 = false;
+        let wheelRotation = 0;
+        let isSpinning = false;
+        
+        // Función para obtener la hora actual en Perú
+        function getPeruTime() {
+            const now = new Date();
+            // Convertir a hora de Perú (UTC-5)
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            return new Date(utc + (3600000 * -5));
+        }
+        
+        function updateCounter() {
+            const now = getPeruTime();
+            const diff = now - startDate;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        function createHearts() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * window.innerWidth + 'px';
+                    heart.style.top = window.innerHeight + 'px';
+                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    heart.style.opacity = '0.8';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '9999';
+                    heart.style.transition = 'all 3s ease-out';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.style.top = '-100px';
+                        heart.style.opacity = '0';
+                        heart.style.transform = `translateX(${Math.random() * 200 - 100}px)`;
+                    }, 50);
+                    
+                    setTimeout(() => heart.remove(), 3500);
+                }, i * 100);
+            }
+        }
+        
+        function showSurprise() {
+            const modal = document.getElementById('surprise-modal');
+            const surprises = [
+                '✨ Eres la persona más especial en mi vida. Cada día contigo es un regalo.',
+                '💖 Tu sonrisa ilumina mis días más oscuros. Eres mi luz.',
+                '🌟 Contigo descubrí el verdadero significado del amor.',
+                '🏡 Eres mi hogar, mi paz, mi felicidad infinita.',
+                '🎵 Cada momento a tu lado es un tesoro que guardo en mi corazón.',
+                '💝 Gracias por existir y por amarme como lo haces.',
+                '🌈 Contigo cada día es mejor que el anterior.',
+                '⭐ Eres mi persona favorita en todo el universo.'
+            ];
+            document.getElementById('surprise-text').textContent = surprises[Math.floor(Math.random() * surprises.length)];
+            modal.classList.add('active');
+            createHearts();
+        }
+        
+        function closeSurprise() {
+            document.getElementById('surprise-modal').classList.remove('active');
+        }
+        
+        function changeMessage() {
+            const messageEl = document.getElementById('rotating-message');
+            const randomMsg = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            messageEl.style.opacity = '0';
+            setTimeout(() => {
+                messageEl.textContent = randomMsg;
+                messageEl.style.opacity = '1';
+            }, 300);
+        }
+        
         function loadGallery() {
             const gallery = document.getElementById('solo-gallery');
             soloImages.forEach((img, i) => {
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
-                    <img src="${img}" alt="Imagen ${i + 1}">
+                    <img src="${img}" alt="Imagen ${i + 1}" onerror="this.src='https://via.placeholder.com/300x300/667eea/ffffff?text=Foto+${i+1}'">
                     <div class="card-content">
                         <p class="caption">${soloCaptions[i]}</p>
                     </div>
@@ -789,7 +976,6 @@
             });
         }
         
-        let currentSlide = 0;
         function loadSlider() {
             const container = document.getElementById('slider-container');
             const dots = document.getElementById('slider-dots');
@@ -798,7 +984,7 @@
                 const slide = document.createElement('div');
                 slide.className = 'slide';
                 slide.innerHTML = `
-                    <img src="${img}" alt="Recuerdo ${i + 1}">
+                    <img src="${img}" alt="Recuerdo ${i + 1}" onerror="this.src='https://via.placeholder.com/900x500/764ba2/ffffff?text=Recuerdo+${i+1}'">
                     <div class="slide-caption">${cinemaCaptions[i]}</div>
                 `;
                 container.appendChild(slide);
@@ -835,9 +1021,26 @@
             cinemaImages.forEach((img, i) => {
                 const item = document.createElement('div');
                 item.className = 'memory-item';
-                item.innerHTML = `<img src="${img}" alt="Memoria ${i + 1}">`;
+                item.innerHTML = `<img src="${img}" alt="Memoria ${i + 1}" onerror="this.src='https://via.placeholder.com/200x200/f093fb/ffffff?text=M${i+1}'">`;
                 item.onclick = () => showMemoryDetail(i);
                 wall.appendChild(item);
+            });
+        }
+        
+        function showMemoryDetail(index) {
+            const modal = document.getElementById('surprise-modal');
+            document.getElementById('surprise-text').textContent = cinemaCaptions[index];
+            modal.classList.add('active');
+        }
+        
+        function loadPhotoCollage() {
+            const collage = document.getElementById('photo-collage');
+            const allImages = [...soloImages, ...cinemaImages];
+            allImages.slice(0, 16).forEach((img, i) => {
+                const item = document.createElement('div');
+                item.className = 'collage-item';
+                item.innerHTML = `<img src="${img}" alt="Collage ${i + 1}" onerror="this.src='https://via.placeholder.com/200x200/4facfe/ffffff?text=${i+1}'">`;
+                collage.appendChild(item);
             });
         }
         
@@ -854,84 +1057,49 @@
             });
         }
         
-        function updateCounter() {
-            const now = new Date();
-            const diff = now - startDate;
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
+        function loadReasons() {
+            const grid = document.getElementById('reasons-grid');
+            grid.innerHTML = '';
+            reasons.slice(0, displayedReasons).forEach((reason, i) => {
+                const card = document.createElement('div');
+                card.className = 'reason-card';
+                card.innerHTML = `
+                    <div class="reason-number">#${i + 1}</div>
+                    <p>${reason}</p>
+                `;
+                card.style.animationDelay = `${i * 0.1}s`;
+                grid.appendChild(card);
+            });
         }
         
-        function changeMessage() {
-            const messageEl = document.getElementById('rotating-message');
-            const randomMsg = loveMessages[Math.floor(Math.random() * loveMessages.length)];
-            messageEl.style.opacity = '0';
-            setTimeout(() => {
-                messageEl.textContent = randomMsg;
-                messageEl.style.opacity = '1';
-            }, 300);
-        }
-        
-        function showSurprise() {
-            const modal = document.getElementById('surprise-modal');
-            const surprises = [
-                'Eres la persona más especial en mi vida. Cada día contigo es un regalo.',
-                'Tu sonrisa ilumina mis días más oscuros. Eres mi luz.',
-                'Contigo descubrí el verdadero significado del amor.',
-                'Eres mi hogar, mi paz, mi felicidad infinita.',
-                'Cada momento a tu lado es un tesoro que guardo en mi corazón.'
-            ];
-            document.getElementById('surprise-text').textContent = surprises[Math.floor(Math.random() * surprises.length)];
-            modal.classList.add('active');
-            createHearts();
-        }
-        
-        function closeSurprise() {
-            document.getElementById('surprise-modal').classList.remove('active');
-        }
-        
-        function createHearts() {
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.innerHTML = '❤️';
-                    heart.style.position = 'fixed';
-                    heart.style.left = Math.random() * window.innerWidth + 'px';
-                    heart.style.top = window.innerHeight + 'px';
-                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
-                    heart.style.opacity = '0.8';
-                    heart.style.pointerEvents = 'none';
-                    heart.style.zIndex = '9999';
-                    heart.style.transition = 'all 3s ease-out';
-                    document.body.appendChild(heart);
-                    
-                    setTimeout(() => {
-                        heart.style.top = '-100px';
-                        heart.style.opacity = '0';
-                        heart.style.transform = `translateX(${Math.random() * 200 - 100}px)`;
-                    }, 50);
-                    
-                    setTimeout(() => heart.remove(), 3500);
-                }, i * 100);
+        function showMoreReasons() {
+            displayedReasons = Math.min(displayedReasons + 10, reasons.length);
+            loadReasons();
+            if (displayedReasons >= reasons.length) {
+                event.target.style.display = 'none';
             }
         }
         
-        let quizAnswered1 = false;
-        let quizAnswered2 = false;
+        function loadWishes() {
+            const board = document.getElementById('wishes-board');
+            wishes.forEach(wish => {
+                const card = document.createElement('div');
+                card.className = 'wish-card';
+                card.innerHTML = `
+                    <div style="font-size: 3em; margin-bottom: 15px;">${wish.emoji}</div>
+                    <p style="font-size: 1.1em;">${wish.text}</p>
+                `;
+                board.appendChild(card);
+            });
+        }
         
         function answerQuiz1(option) {
             if (quizAnswered1) return;
             quizAnswered1 = true;
             
             const result = document.getElementById('quiz-result-1');
-            const options = document.querySelectorAll('#quiz-result-1').parentElement.previousElementSibling.querySelectorAll('.quiz-option');
+            const container = result.parentElement.previousElementSibling;
+            const options = container.querySelectorAll('.quiz-option');
             
             if (option === 2) {
                 result.textContent = '¡Correcto! Moana 2 fue nuestra película favorita. ❤️ ¡Nos encantó compartir ese momento mágico!';
@@ -960,7 +1128,8 @@
             quizAnswered2 = true;
             
             const result = document.getElementById('quiz-result-2');
-            const options = document.querySelectorAll('#quiz-result-2').parentElement.previousElementSibling.querySelectorAll('.quiz-option');
+            const container = result.parentElement.previousElementSibling;
+            const options = container.querySelectorAll('.quiz-option');
             
             if (option === 1) {
                 result.textContent = '¡Exacto! El Conjuro 4: Últimos Ritos aún está en nuestra lista. ¡Tenemos que verla juntos! 🎬';
@@ -984,14 +1153,42 @@
             }, 4000);
         }
         
-        let musicPlaying = false;
-        let musicProgress = 0;
+        function answerQuiz3(option) {
+            if (quizAnswered3) return;
+            quizAnswered3 = true;
+            
+            const result = document.getElementById('quiz-result-3');
+            const container = result.parentElement.previousElementSibling;
+            const options = container.querySelectorAll('.quiz-option');
+            
+            if (option === 0) {
+                result.textContent = '¡Correcto! Terrifier 3 fue la más aterradora. ¡Pero estuvimos juntos y eso lo hizo mejor! 😱💕';
+                result.style.color = '#ffd700';
+                options[option].style.background = 'rgba(0, 255, 0, 0.3)';
+                options[option].style.borderColor = '#00ff00';
+            } else {
+                result.textContent = '¡No exactamente! Pero todas las películas de terror contigo son una aventura. 👻';
+                result.style.color = '#ff6b6b';
+                options[option].style.background = 'rgba(255, 0, 0, 0.2)';
+                options[option].style.borderColor = '#ff6b6b';
+            }
+            
+            setTimeout(() => {
+                quizAnswered3 = false;
+                result.textContent = '';
+                options.forEach(opt => {
+                    opt.style.background = '';
+                    opt.style.borderColor = '';
+                });
+            }, 4000);
+        }
+        
         function toggleMusic() {
             musicPlaying = !musicPlaying;
             if (musicPlaying) {
-                const interval = setInterval(() => {
+                musicInterval = setInterval(() => {
                     if (!musicPlaying) {
-                        clearInterval(interval);
+                        clearInterval(musicInterval);
                         return;
                     }
                     musicProgress += 0.5;
@@ -1000,63 +1197,511 @@
                     }
                     document.getElementById('progress-fill').style.width = musicProgress + '%';
                 }, 50);
+            } else {
+                if (musicInterval) {
+                    clearInterval(musicInterval);
+                }
             }
         }
         
-        function showMemoryDetail(index) {
+        function recalculateLove() {
+            const result = document.querySelector('.calculator-result');
+            result.style.transform = 'scale(0)';
+            setTimeout(() => {
+                const percentage = 95 + Math.floor(Math.random() * 6);
+                result.textContent = `❤️ ${percentage}% ❤️`;
+                result.style.transform = 'scale(1)';
+                createHearts();
+            }, 300);
+        }
+        
+        function spinWheel() {
+            if (isSpinning) return;
+            isSpinning = true;
+            
+            const wheel = document.getElementById('fortune-wheel');
+            const result = document.getElementById('wheel-result');
+            const spins = 5 + Math.random() * 3;
+            const finalRotation = wheelRotation + (360 * spins) + Math.random() * 360;
+            
+            wheel.style.transform = `rotate(${finalRotation}deg)`;
+            wheelRotation = finalRotation % 360;
+            
+            result.textContent = '🎰 Girando...';
+            
+            setTimeout(() => {
+                const prizeIndex = Math.floor(Math.random() * wheelPrizes.length);
+                result.textContent = `¡Ganaste: ${wheelPrizes[prizeIndex]}! 🎉`;
+                result.style.color = '#ffd700';
+                isSpinning = false;
+                createHearts();
+            }, 3000);
+        }
+        
+        function selectDate(index) {
+            const dateNames = [
+                'Noche de Cine 🍿',
+                'Cena Romántica 🍽️',
+                'Arte y Cultura 🎨',
+                'Picnic en el Parque 🌳',
+                'Noche de Juegos 🎮',
+                'Karaoke 🎤'
+            ];
+            
             const modal = document.getElementById('surprise-modal');
-            document.getElementById('surprise-text').textContent = cinemaCaptions[index];
+            document.getElementById('surprise-text').textContent = `¡Excelente elección! ${dateNames[index]} suena perfecto para nuestra próxima cita. ¡Hagámoslo realidad pronto! 💕`;
             modal.classList.add('active');
         }
         
-        loadGallery();
-        loadSlider();
-        loadMemoryWall();
-        loadPoems();
-        
-        setInterval(updateCounter, 1000);
-        updateCounter();
-        
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
-        
-        document.getElementById('rotating-message').style.transition = 'opacity 0.3s';
-        
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
-                e.target.classList.remove('active');
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f7b731', '#5f27cd', '#ff69b4', '#ffd700'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-20px';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.opacity = '0.8';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.transition = 'all 3s ease-out';
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.style.top = window.innerHeight + 'px';
+                        confetti.style.opacity = '0';
+                        confetti.style.transform = `translateX(${Math.random() * 200 - 100}px) rotate(${Math.random() * 720}deg)`;
+                    }, 50);
+                    
+                    setTimeout(() => confetti.remove(), 3500);
+                }, i * 30);
             }
-        });
-        
-        setInterval(() => {
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
-            const particle = document.createElement('div');
-            particle.style.position = 'fixed';
-            particle.style.left = x + 'px';
-            particle.style.top = y + 'px';
-            particle.style.width = '3px';
-            particle.style.height = '3px';
-            particle.style.background = 'white';
-            particle.style.borderRadius = '50%';
-            particle.style.pointerEvents = 'none';
-            particle.style.opacity = '0.6';
-            particle.style.animation = 'twinkle 2s ease-in-out';
-            particle.style.zIndex = '1';
-            document.body.appendChild(particle);
+        }
+    </script>
+
+    <header>
+        <h1>Mi Amor Eterno</h1>
+        <p class="subtitle">Un universo dedicado a celebrar nuestro amor infinito</p>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>💕 Contador de Amor</h2>
+            <div class="counter-display" id="counter-display">
+                <div class="counter-box">
+                    <span class="counter-number" id="days">333</span>
+                    <span class="counter-label">Días Juntos</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="hours">0</span>
+                    <span class="counter-label">Horas</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="minutes">0</span>
+                    <span class="counter-label">Minutos</span>
+                </div>
+                <div class="counter-box">
+                    <span class="counter-number" id="seconds">0</span>
+                    <span class="counter-label">Segundos</span>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="interactive-button" onclick="showSurprise()">🎁 Descubre una Sorpresa</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>💝 Calculadora del Amor</h2>
+            <div class="love-calculator">
+                <p style="font-size: 1.3em; text-align: center;">Nuestro nivel de compatibilidad:</p>
+                <div class="calculator-result">❤️ 100% ❤️</div>
+                <p style="text-align: center; font-size: 1.2em;">¡Somos perfectos el uno para el otro!</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button class="interactive-button" onclick="recalculateLove()">🔄 Recalcular</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>✨ 100 Razones Por las que Te Amo</h2>
+            <div class="reasons-grid" id="reasons-grid"></div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="interactive-button" onclick="showMoreReasons()">💖 Ver Más Razones</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📸 Galería de Tu Belleza</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px;">17 momentos que capturan tu esencia única</p>
+            <div class="gallery" id="solo-gallery"></div>
+        </section>
+
+        <section class="section">
+            <h2>🎬 Nuestros Momentos en el Cine</h2>
+            <div class="interactive-slider">
+                <div class="slider-container" id="slider-container"></div>
+                <div class="slider-nav">
+                    <button class="slider-btn" onclick="changeSlide(-1)">❮</button>
+                    <button class="slider-btn" onclick="changeSlide(1)">❯</button>
+                </div>
+            </div>
+            <div class="slider-dots" id="slider-dots"></div>
+        </section>
+
+        <section class="section">
+            <h2>🎞️ Collage de Recuerdos</h2>
+            <div class="photo-collage" id="photo-collage"></div>
+        </section>
+
+        <section class="section">
+            <h2>🎥 Muro de Recuerdos Cinematográficos</h2>
+            <div class="memory-wall" id="memory-wall"></div>
+        </section>
+
+        <section class="section">
+            <h2>📝 Poemas de Mi Corazón</h2>
+            <div class="poem-grid" id="poem-grid"></div>
+        </section>
+
+        <section class="section">
+            <h2>💌 Carta de Amor</h2>
+            <div class="letter-envelope">
+                <div class="letter-content">
+                    <p>Mi amor,</p>
+                    <p>Cada día que pasa a tu lado es un regalo que atesoro en mi corazón. Desde aquel 6 de noviembre de 2024, mi vida cambió para siempre. Encontré en ti no solo a mi pareja, sino a mi mejor amiga, mi confidente, mi cómplice de aventuras.</p>
+                    <p>Amo la forma en que tu risa ilumina cualquier habitación, cómo tus ojos brillan cuando hablas de tus sueños, y la calidez de tu abrazo que me hace sentir que estoy en casa. Amo cada pequeño detalle de ti.</p>
+                    <p>Gracias por elegirme cada día, por tu paciencia, tu amor incondicional y por hacer de cada momento algo especial. Prometo amarte hoy, mañana y siempre.</p>
+                    <p style="text-align: right; margin-top: 30px;">Con todo mi amor,<br>Tu persona favorita 💕</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎯 Nuestra Lista de Sueños</h2>
+            <div class="bucket-list">
+                <p style="text-align: center; font-size: 1.3em; margin-bottom: 30px;">Cosas que haremos juntos:</p>
+                <div class="bucket-item">🌅 Ver el amanecer desde una montaña</div>
+                <div class="bucket-item">✈️ Viajar a París y ver la Torre Eiffel</div>
+                <div class="bucket-item">🏖️ Caminar descalzos por la playa al atardecer</div>
+                <div class="bucket-item">🎢 Ir a un parque de diversiones y gritar en las montañas rusas</div>
+                <div class="bucket-item">🍕 Hacer pizza casera juntos</div>
+                <div class="bucket-item">🌠 Acampar bajo las estrellas</div>
+                <div class="bucket-item">🎨 Tomar una clase de pintura para parejas</div>
+                <div class="bucket-item">🎭 Asistir a un musical de Broadway</div>
+                <div class="bucket-item">🏔️ Esquiar en la nieve por primera vez</div>
+                <div class="bucket-item">💍 Construir nuestro futuro juntos</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎪 Ideas para Nuestras Citas</h2>
+            <div class="date-ideas">
+                <div class="date-card" onclick="selectDate(0)">
+                    <div class="date-icon">🍿</div>
+                    <h3>Noche de Cine</h3>
+                    <p>Películas, palomitas y abrazos</p>
+                </div>
+                <div class="date-card" onclick="selectDate(1)">
+                    <div class="date-icon">🍽️</div>
+                    <h3>Cena Romántica</h3>
+                    <p>Restaurant con velas y música</p>
+                </div>
+                <div class="date-card" onclick="selectDate(2)">
+                    <div class="date-icon">🎨</div>
+                    <h3>Arte y Cultura</h3>
+                    <p>Museos y galerías</p>
+                </div>
+                <div class="date-card" onclick="selectDate(3)">
+                    <div class="date-icon">🌳</div>
+                    <h3>Picnic en el Parque</h3>
+                    <p>Naturaleza y tranquilidad</p>
+                </div>
+                <div class="date-card" onclick="selectDate(4)">
+                    <div class="date-icon">🎮</div>
+                    <h3>Noche de Juegos</h3>
+                    <p>Videojuegos o juegos de mesa</p>
+                </div>
+                <div class="date-card" onclick="selectDate(5)">
+                    <div class="date-icon">🎤</div>
+                    <h3>Karaoke</h3>
+                    <p>Cantar sin pena juntos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎡 Ruleta de la Fortuna del Amor</h2>
+            <div style="text-align: center;">
+                <p style="font-size: 1.3em; margin-bottom: 20px;">¡Gira la ruleta para una sorpresa!</p>
+                <div class="fortune-wheel" id="fortune-wheel">
+                    <div class="fortune-pointer"></div>
+                </div>
+                <button class="interactive-button" onclick="spinWheel()">🎰 Girar Ruleta</button>
+                <p id="wheel-result" style="font-size: 1.5em; margin-top: 20px; min-height: 60px;"></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>💭 Tabla de Deseos</h2>
+            <div class="wishes-board" id="wishes-board"></div>
+        </section>
+
+        <section class="section">
+            <h2>⏰ Nuestra Historia de Amor</h2>
+            <div class="timeline" id="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>6 de Noviembre, 2024</h3>
+                        <p>El día que cambió nuestras vidas para siempre. Nuestro primer momento mágico juntos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Primera Cita en el Cine</h3>
+                        <p>Palomitas compartidas y manos entrelazadas en la oscuridad. El inicio de algo hermoso.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Febrero, 2025</h3>
+                        <p>Nuestra primera escapada romántica. Descubriendo el mundo juntos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Junio, 2025</h3>
+                        <p>La noche que reímos hasta el amanecer. Momentos que quedan grabados en el alma.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Octubre, 2025</h3>
+                        <p>Hoy, celebrando más de 300 días de puro amor. Y apenas es el comienzo.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Nuestro Futuro</h3>
+                        <p>Infinitas aventuras por vivir. Un amor eterno que seguirá creciendo cada día.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>💬 Mensajes del Corazón</h2>
+            <div class="love-message-box">
+                <p id="rotating-message">Eres mi universo entero, mi razón de sonreír cada mañana.</p>
+                <button class="interactive-button" onclick="changeMessage()">🔄 Nuevo Mensaje</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎯 Quiz del Amor</h2>
+            <div class="quiz-container">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película nos gustó más ver en el cine?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuiz1(0)">Deadpool & Wolverine</div>
+                    <div class="quiz-option" onclick="answerQuiz1(1)">Intensamente 2</div>
+                    <div class="quiz-option" onclick="answerQuiz1(2)">Moana 2</div>
+                    <div class="quiz-option" onclick="answerQuiz1(3)">Dune: Parte 2</div>
+                </div>
+                <p id="quiz-result-1" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
+            </div>
             
-            setTimeout(() => particle.remove(), 2000);
-        }, 200);
-        
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes twinkle {
-                0%, 100% { opacity: 0; transform: scale(0); }
-                50% { opacity: 0.6; transform: scale(1); }
-            }
-        `;
-        document.head.appendChild(style);
+            <div class="quiz-container" style="margin-top: 40px;">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película NO hemos visto todavía?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuiz2(0)">Wicked</div>
+                    <div class="quiz-option" onclick="answerQuiz2(1)">El Conjuro 4: Últimos Ritos</div>
+                    <div class="quiz-option" onclick="answerQuiz2(2)">Gladiador II</div>
+                    <div class="quiz-option" onclick="answerQuiz2(3)">Venom 3</div>
+                </div>
+                <p id="quiz-result-2" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
+            </div>
+            
+            <div class="quiz-container" style="margin-top: 40px;">
+                <p style="font-size: 1.3em; text-align: center; margin-bottom: 20px;">¿Qué película te dio más miedo verla en el cine?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="answerQuiz3(0)">Terrifier 3</div>
+                    <div class="quiz-option" onclick="answerQuiz3(1)">Together: Juntos Hasta la Muerte</div>
+                    <div class="quiz-option" onclick="answerQuiz3(2)">Nosferatu</div>
+                    <div class="quiz-option" onclick="answerQuiz3(3)">Smile 2</div>
+                </div>
+                <p id="quiz-result-3" style="text-align: center; margin-top: 20px; font-size: 1.2em;"></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🎵 Reproductor de Recuerdos</h2>
+            <div class="music-player">
+                <p style="font-size: 1.3em; margin-bottom: 20px;">Nuestra Canción: "Perfect" - Ed Sheeran</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <button class="interactive-button" onclick="toggleMusic()">▶ Play / Pause</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p style="font-size: 1.2em;">Creado con todo mi amor para ti 💝</p>
+        <p style="margin-top: 10px; opacity: 0.8;">© 2025 - Un amor que trasciende el tiempo ✨</p>
+    </footer>
+
+    <div class="modal" id="surprise-modal">
+        <div class="modal-content">
+            <h3>¡Sorpresa! 🎉</h3>
+            <p id="surprise-text">Eres la persona más especial en mi vida. Cada día contigo es un regalo.</p>
+            <button class="interactive-button" onclick="closeSurprise()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        // Inicialización cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGallery();
+            loadSlider();
+            loadMemoryWall();
+            loadPhotoCollage();
+            loadPoems();
+            loadReasons();
+            loadWishes();
+            
+            setInterval(updateCounter, 1000);
+            updateCounter();
+            
+            // Auto-slide para el slider
+            setInterval(() => {
+                changeSlide(1);
+            }, 5000);
+            
+            // Transición suave para mensajes
+            document.getElementById('rotating-message').style.transition = 'opacity 0.3s';
+            
+            // Cerrar modal al hacer clic fuera
+            window.addEventListener('click', (e) => {
+                if (e.target.classList.contains('modal')) {
+                    e.target.classList.remove('active');
+                }
+            });
+            
+            // Efecto de partículas brillantes
+            setInterval(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.width = '3px';
+                particle.style.height = '3px';
+                particle.style.background = 'white';
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.opacity = '0.6';
+                particle.style.animation = 'twinkle 2s ease-in-out';
+                particle.style.zIndex = '1';
+                document.body.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 2000);
+            }, 200);
+            
+            // Cambiar mensaje automáticamente cada 10 segundos
+            setInterval(() => {
+                changeMessage();
+            }, 10000);
+            
+            // Animación al hacer scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+            
+            // Efecto de corazones aleatorios
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = ['💕', '💖', '💗', '💓', '💝'][Math.floor(Math.random() * 5)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * window.innerWidth + 'px';
+                    heart.style.bottom = '-50px';
+                    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                    heart.style.opacity = '0.7';
+                    heart.style.pointerEvents = 'none';
+                    heart.style.zIndex = '1';
+                    heart.style.transition = 'all 4s ease-out';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.style.bottom = '110vh';
+                        heart.style.opacity = '0';
+                        heart.style.transform = `translateX(${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)`;
+                    }, 50);
+                    
+                    setTimeout(() => heart.remove(), 4500);
+                }
+            }, 3000);
+            
+            // Easter egg: Triple clic en el título
+            let clickCount = 0;
+            document.querySelector('h1').addEventListener('click', () => {
+                clickCount++;
+                if (clickCount >= 3) {
+                    clickCount = 0;
+                    const modal = document.getElementById('surprise-modal');
+                    document.getElementById('surprise-text').textContent = '🎊 ¡Encontraste el Easter Egg! 🎊\n\nEres increíble y curiosa, una de las muchas cosas que amo de ti. ¡Sigue explorando nuestra página del amor! 💖';
+                    modal.classList.add('active');
+                    
+                    // Explosión de corazones
+                    for (let i = 0; i < 50; i++) {
+                        setTimeout(() => {
+                            createHearts();
+                        }, i * 50);
+                    }
+                }
+                setTimeout(() => clickCount = 0, 1000);
+            });
+            
+            // Confeti al hacer clic en los contadores
+            document.querySelectorAll('.counter-box').forEach(box => {
+                box.addEventListener('click', createConfetti);
+            });
+            
+            // Mensaje de bienvenida al cargar la página
+            setTimeout(() => {
+                const welcomeModal = document.getElementById('surprise-modal');
+                document.getElementById('surprise-text').textContent = '¡Bienvenida a nuestro espacio especial! 💝\n\nEsta página fue creada con todo mi amor para celebrar cada momento que hemos vivido juntos. Explora, disfruta y recuerda que eres el amor de mi vida. ✨';
+                welcomeModal.classList.add('active');
+                createHearts();
+            }, 1000);
+        });
     </script>
 </body>
 </html>
